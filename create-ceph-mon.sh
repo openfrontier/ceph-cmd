@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-docker run -d --net=host \
+docker run -d --net=host --name=ceph-mon-${HOSTNAME} \
 -v /var/lib/ceph:/var/lib/ceph \
 -e MON_IP=172.20.201.212 \
 -e CEPH_PUBLIC_NETWORK=172.20.201.0/24 \
