@@ -4,4 +4,4 @@ set -e
 docker run -d --privileged=true \
 -v /dev/:/dev/ \
 -e OSD_DEVICE=/dev/sdc \
-ceph/daemon zap_device
+ceph/daemon:tag-build-master-jewel-ubuntu-16.04 zap_device
