@@ -9,3 +9,5 @@ sudo mkdir /etc/ceph
 
 sudo rm -rf /etc/ganesha
 sudo mkdir /etc/ganesha
+
+sudo mkdir -p /opt/bin
