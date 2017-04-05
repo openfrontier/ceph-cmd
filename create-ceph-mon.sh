@@ -5,6 +5,7 @@ HOST_IP=$1
 CEPH_PUBLIC_NETWORK=$2
 
 docker run -d --net=host --name=ceph-mon-${HOSTNAME} \
+--restart=unless-stopped \
 -v /etc/ceph:/etc/ceph \
 -v /etc/ganesha:/etc/ganesha \
 -v /var/lib/ceph:/var/lib/ceph \

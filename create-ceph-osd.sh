@@ -2,6 +2,7 @@
 set -e
 
 docker run -d --net=host --name=ceph-osd-${HOSTNAME} \
+--restart=unless-stopped \
 --privileged=true \
 --pid=host \
 -v /dev/:/dev/ \
