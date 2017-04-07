@@ -2,7 +2,7 @@
 
 Run ceph in docker
 
-## Prerequests
+## Prerequisites
 
  * docker
  * etcd2 cluster at localhost listening 2379
