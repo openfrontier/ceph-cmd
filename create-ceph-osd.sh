@@ -9,6 +9,7 @@ docker run -d --net=host --name=ceph-osd-${HOSTNAME} \
 --pid=host \
 -v /dev/:/dev/ \
 -v /var/lib/ceph:/var/lib/ceph \
+-v /etc/localtime:/etc/localtime:ro \
 -e OSD_DEVICE=/dev/sdc \
 -e KV_TYPE=etcd \
 -e KV_IP=${ETCD_CLIENT_IP} \
