@@ -9,6 +9,7 @@ docker run -d --net=host --name=ceph-mon-${HOSTNAME} \
 -v /etc/ceph:/etc/ceph \
 -v /etc/ganesha:/etc/ganesha \
 -v /var/lib/ceph:/var/lib/ceph \
+-v /etc/localtime:/etc/localtime:ro \
 -e MON_IP=${HOST_IP} \
 -e CEPH_PUBLIC_NETWORK=${CEPH_PUBLIC_NETWORK} \
 -e KV_TYPE=etcd \
