@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-ETCD_CLIENT_IP=$1
+CLUSTER_NAME=$1
+ETCD_CLIENT_IP=$2
 
 docker run -d --net=host --name=ceph-osd-${HOSTNAME} \
 --restart=unless-stopped \
@@ -11,6 +12,7 @@ docker run -d --net=host --name=ceph-osd-${HOSTNAME} \
 -v /var/lib/ceph:/var/lib/ceph \
 -v /etc/localtime:/etc/localtime:ro \
 -e OSD_DEVICE=/dev/sdc \
+-e CLUSTER=${CLUSTER_NAME:-ceph} \
 -e KV_TYPE=etcd \
 -e KV_IP=${ETCD_CLIENT_IP} \
 -e KV_PORT=2379 \

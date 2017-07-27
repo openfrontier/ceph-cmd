@@ -3,7 +3,8 @@ set -e
 
 HOST_IP=$1
 CEPH_PUBLIC_NETWORK=$2
-ETCD_CLIENT_IP=$3
+CLUSTER_NAME=$3
+ETCD_CLIENT_IP=$4
 
 docker run -d --net=host --name=ceph-mon-${HOSTNAME} \
 --restart=unless-stopped \
@@ -13,6 +14,7 @@ docker run -d --net=host --name=ceph-mon-${HOSTNAME} \
 -v /etc/localtime:/etc/localtime:ro \
 -e MON_IP=${HOST_IP} \
 -e CEPH_PUBLIC_NETWORK=${CEPH_PUBLIC_NETWORK} \
+-e CLUSTER=${CLUSTER_NAME:-ceph} \
 -e KV_TYPE=etcd \
 -e KV_IP=${ETCD_CLIENT_IP} \
 -e KV_PORT=2379 \
